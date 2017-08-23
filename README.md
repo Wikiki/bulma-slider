@@ -28,7 +28,7 @@ $slider-thumb-radius | $radius
 
 Demo
 ---
-You can find a demo [here](https://codepen.io/wikiki/pen/qXYVyL)
+You can find a demo [here](https://codepen.io/wikiki/pen/gxKgEO)
 
 Integration
 ---
