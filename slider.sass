@@ -1,0 +1,138 @@
+$slider-radius: $radius !default
+$slider-track-background: $grey-light !default
+$slider-thumb-background: $primary !default
+$slider-track-radius: $radius !default
+$slider-thumb-radius: $radius !default
+
+=slider-size($size)
+  height: $size * 2
+  &::-webkit-slider-thumb
+    height: $size * 1.2
+    width: $size * 1.2
+  &::-moz-range-thumb
+    height: $size * 1.2
+    width: $size * 1.2
+  &::-ms-thumb
+    height: $size * 1.2
+    width: $size * 1.2
+  &::-webkit-slider-thumb
+    -webkit-appearance: none
+    margin-top: -( $size / 2 )
+  &::-webkit-slider-runnable-track
+    height: $size / 2.5
+  &::-moz-range-track
+    height: $size / 2.5
+  &::-ms-track
+    height: $size / 2.5
+
+.slider
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  background: transparent
+  display: block
+
+  &.is-fullwidth
+    display: block
+    width: 100%
+
+  &:focus
+    outline: none
+
+  &::-webkit-slider-thumb
+    background: $slider-thumb-background
+    border: 0px
+    border-radius: $slider-thumb-radius
+    transition: transform .2s ease, -webkit-transform .2s ease
+    transition: transform .2s ease
+    transition: -webkit-transform .2s ease
+  &::-moz-range-thumb
+    background: $slider-thumb-background
+    border: 0px
+    border-radius: $slider-thumb-radius
+    transition: transform .2s ease, -webkit-transform .2s ease
+    transition: transform .2s ease
+    transition: -webkit-transform .2s ease
+  &::-ms-thumb
+    background: $slider-thumb-background
+    border: 0px
+    border-radius: $slider-thumb-radius
+    transition: transform .2s ease, -webkit-transform .2s ease
+    transition: transform .2s ease
+    transition: -webkit-transform .2s ease
+
+  &::-webkit-slider-thumb
+    -webkit-appearance: none
+
+  &.is-circle
+    &::-webkit-slider-thumb
+      border-radius: 50%
+    &::-moz-range-thumb
+      border-radius: 50%
+    &::-ms-thumb
+      border-radius: 50%
+
+  &:active
+    &::-webkit-slider-thumb
+      -webkit-transform: scale(1.25)
+      transform: scale(1.25)
+
+    &::-moz-range-thumb
+      transform: scale(1.25)
+
+    &::-ms-thumb
+      -ms-transform: scale(1.25)
+      transform: scale(1.25)
+
+  &:disabled
+    opacity: 0.5
+    &::-webkit-slider-thumb
+      opacity: 0.5
+      -webkit-transform: scale(1)
+      transform: scale(1)
+
+    &::-moz-range-thumb
+      opacity: 0.5
+      transform: scale(1)
+
+    &::-ms-thumb
+      opacity: 0.5
+      -ms-transform: scale(1)
+      transform: scale(1)
+
+  &::-webkit-slider-runnable-track
+    background: $slider-track-background
+    border-radius: $slider-track-radius
+    width: 100%
+
+  &::-moz-range-track
+    background: $slider-track-background
+    border-radius: $slider-track-radius
+    width: 100%
+
+  &::-ms-track
+    background: $slider-track-background
+    border-radius: $slider-track-radius
+    width: 100%
+
+  &::-ms-fill-lower
+    background: $primary
+
+  +slider-size($size-normal)
+  &.is-small
+    +slider-size($size-small)
+  &.is-medium
+    +slider-size($size-medium)
+  &.is-large
+    +slider-size($size-large)
+
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      &::-moz-range-track
+        background: $color
+      &::-webkit-slider-runnable-track
+        background: $color
+      &::-ms-track
+        background: $color !important
