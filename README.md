@@ -1,5 +1,6 @@
 # bulma-slider
-Bulma's extension to display sliders (find all my bulma's extensions [here](https://github.com/Wikiki/bulma-extensions))
+Bulma's extension to display sliders
+(find all my bulma's extensions [here](https://wikiki.github.io/bulma-extensions))
 
 <img src="./slider-example.png" width="100%">
 
