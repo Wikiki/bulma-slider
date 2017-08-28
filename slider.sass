@@ -23,7 +23,7 @@ $slider-thumb-radius: $radius !default
   &::-moz-range-track
     height: $size / 2.5
   &::-ms-track
-    height: $size / 2.5
+    height: $size * 2
 
 .slider
   -webkit-appearance: none
@@ -102,21 +102,27 @@ $slider-thumb-radius: $radius !default
 
   &::-webkit-slider-runnable-track
     background: $slider-track-background
+    border: 0px
     border-radius: $slider-track-radius
     width: 100%
 
   &::-moz-range-track
     background: $slider-track-background
+    border: 0px
     border-radius: $slider-track-radius
     width: 100%
 
   &::-ms-track
-    background: $slider-track-background
+    /* Hides the slider so custom styles can be added */
+    background: transparent
+    border-color: transparent
+    color: transparent
     border-radius: $slider-track-radius
     width: 100%
-
   &::-ms-fill-lower
     background: $primary
+  &::-ms-fill-upper
+    background: $slider-track-background
 
   +slider-size($size-normal)
   &.is-small
@@ -134,5 +140,5 @@ $slider-thumb-radius: $radius !default
         background: $color
       &::-webkit-slider-runnable-track
         background: $color
-      &::-ms-track
+      &::-ms-fill-lower
         background: $color !important
