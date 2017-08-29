@@ -1,144 +1,158 @@
 $slider-radius: $radius !default
 $slider-track-background: $grey-light !default
-$slider-thumb-background: $primary !default
 $slider-track-radius: $radius !default
+$slider-track-border: 0px solid $grey !default
+$slider-track-shadow: 0px 0px 0px $grey !default
+$slider-thumb-background: $primary !default
 $slider-thumb-radius: $radius !default
+$slider-thumb-border: 0px 0px 0px $grey !default
+$slider-thumb-shadow: none !default
 
 =slider-size($size)
-  height: $size * 2
-  &::-webkit-slider-thumb
-    height: $size * 1.2
-    width: $size * 1.2
-  &::-moz-range-thumb
-    height: $size * 1.2
-    width: $size * 1.2
-  &::-ms-thumb
-    height: $size * 1.2
-    width: $size * 1.2
-  &::-webkit-slider-thumb
-    -webkit-appearance: none
-    margin-top: -( $size / 2 )
-  &::-webkit-slider-runnable-track
-    height: $size / 2.5
-  &::-moz-range-track
-    height: $size / 2.5
-  &::-ms-track
-    height: $size * 2
-
-.slider
-  -webkit-appearance: none
-  -moz-appearance: none
-  appearance: none
-  background: transparent
-  display: block
-
-  &.is-fullwidth
-    display: block
-    width: 100%
-
-  &:focus
-    outline: none
-
-  &::-webkit-slider-thumb
-    background: $slider-thumb-background
-    border: 0px
-    border-radius: $slider-thumb-radius
-    transition: transform .2s ease, -webkit-transform .2s ease
-    transition: transform .2s ease
-    transition: -webkit-transform .2s ease
-  &::-moz-range-thumb
-    background: $slider-thumb-background
-    border: 0px
-    border-radius: $slider-thumb-radius
-    transition: transform .2s ease, -webkit-transform .2s ease
-    transition: transform .2s ease
-    transition: -webkit-transform .2s ease
-  &::-ms-thumb
-    background: $slider-thumb-background
-    border: 0px
-    border-radius: $slider-thumb-radius
-    transition: transform .2s ease, -webkit-transform .2s ease
-    transition: transform .2s ease
-    transition: -webkit-transform .2s ease
-
-  &::-webkit-slider-thumb
-    -webkit-appearance: none
-
-  &.is-circle
-    &::-webkit-slider-thumb
-      border-radius: 50%
-    &::-moz-range-thumb
-      border-radius: 50%
-    &::-ms-thumb
-      border-radius: 50%
-
-  &:active
-    &::-webkit-slider-thumb
-      -webkit-transform: scale(1.25)
-      transform: scale(1.25)
-
-    &::-moz-range-thumb
-      transform: scale(1.25)
-
-    &::-ms-thumb
-      -ms-transform: scale(1.25)
-      transform: scale(1.25)
-
-  &:disabled
-    opacity: 0.5
-    &::-webkit-slider-thumb
-      opacity: 0.5
-      -webkit-transform: scale(1)
-      transform: scale(1)
-
-    &::-moz-range-thumb
-      opacity: 0.5
-      transform: scale(1)
-
-    &::-ms-thumb
-      opacity: 0.5
-      -ms-transform: scale(1)
-      transform: scale(1)
+  $track-height: $size / 2
+  $thumb-size: $size
 
   &::-webkit-slider-runnable-track
-    background: $slider-track-background
-    border: 0px
-    border-radius: $slider-track-radius
-    width: 100%
-
+    height: $track-height
   &::-moz-range-track
-    background: $slider-track-background
-    border: 0px
-    border-radius: $slider-track-radius
-    width: 100%
-
+    height: $track-height
   &::-ms-track
-    /* Hides the slider so custom styles can be added */
+    height: $track-height
+  
+  &::-webkit-slider-thumb
+    height: $thumb-size
+    width: $thumb-size
+    margin-top: -( $thumb-size / 2 )
+  &::-moz-range-thumb
+    height: $thumb-size
+    width: $thumb-size
+  &::-ms-thumb
+    height: $thumb-size
+    width: $thumb-size
+  
+
+input[type=range]
+  &.slider
+    -webkit-appearance: none
+    appearance: none
+    margin: 1rem 0
     background: transparent
-    border-color: transparent
-    color: transparent
-    border-radius: $slider-track-radius
-    width: 100%
-  &::-ms-fill-lower
-    background: $primary
-  &::-ms-fill-upper
-    background: $slider-track-background
 
-  +slider-size($size-normal)
-  &.is-small
-    +slider-size($size-small)
-  &.is-medium
-    +slider-size($size-medium)
-  &.is-large
-    +slider-size($size-large)
+    &.is-fullwidth
+      display: block
+      width: 100%
 
-  @each $name, $pair in $colors
-    $color: nth($pair, 1)
-    $color-invert: nth($pair, 2)
-    &.is-#{$name}
-      &::-moz-range-track
-        background: $color
-      &::-webkit-slider-runnable-track
-        background: $color
-      &::-ms-fill-lower
-        background: $color !important
+    &:focus
+      outline: none
+
+    &::-webkit-slider-runnable-track
+      width: 100%
+      cursor: pointer
+      animate: 0.2s
+      box-shadow: $slider-track-shadow
+      background: $slider-track-background
+      border-radius: $slider-track-radius
+      border: $slider-track-border
+    &::-moz-range-track
+      width: 100%
+      cursor: pointer
+      animate: 0.2s
+      box-shadow: $slider-track-shadow
+      background: $slider-track-background
+      border-radius: $slider-track-radius
+      border: $slider-track-border
+    &::-ms-track
+      width: 100%
+      cursor: pointer
+      animate: 0.2s
+      box-shadow: $slider-track-shadow
+      background: $slider-track-background
+      border-radius: $slider-track-radius
+      border: $slider-track-border
+    &::-ms-fill-lower
+      background: $primary
+    &::-ms-fill-upper
+      background: $grey-lighter
+
+    &::-webkit-slider-thumb
+      box-shadow: $slider-thumb-shadow
+      border: $slider-thumb-border
+      border-radius: $slider-thumb-radius
+      background: $slider-thumb-background
+      cursor: pointer
+      -webkit-appearance: none
+      transition: transform .2s ease, -webkit-transform .2s ease
+      transition: transform .2s ease
+      transition: -webkit-transform .2s ease
+    &::-moz-range-thumb
+      box-shadow: $slider-thumb-shadow
+      border: $slider-thumb-border
+      background: $slider-thumb-background
+      border-radius: $slider-thumb-radius
+      cursor: pointer
+      transition: transform .2s ease, -webkit-transform .2s ease
+      transition: transform .2s ease
+      transition: -webkit-transform .2s ease
+    &::-ms-thumb
+      box-shadow: $slider-thumb-shadow
+      border: $slider-thumb-border
+      background: $slider-thumb-background
+      border-radius: $slider-thumb-radius
+      cursor: pointer
+      transition: transform .2s ease, -webkit-transform .2s ease
+      transition: transform .2s ease
+      transition: -webkit-transform .2s ease
+
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+
+    &.is-circle
+      &::-webkit-slider-thumb
+        border-radius: 50%
+      &::-moz-range-thumb
+        border-radius: 50%
+      &::-ms-thumb
+        border-radius: 50%
+
+    &:active
+      &::-webkit-slider-thumb
+        -webkit-transform: scale(1.25)
+        transform: scale(1.25)
+      &::-moz-range-thumb
+        transform: scale(1.25)
+      &::-ms-thumb
+        -ms-transform: scale(1.25)
+        transform: scale(1.25)
+
+    &:disabled
+      opacity: 0.5
+      &::-webkit-slider-thumb
+        -webkit-transform: scale(1)
+        transform: scale(1)
+      &::-moz-range-thumb
+        transform: scale(1)
+      &::-ms-thumb
+        -ms-transform: scale(1)
+        transform: scale(1)
+
+
+    +slider-size($size-normal)
+    &.is-small
+      +slider-size($size-small)
+    &.is-medium
+      +slider-size($size-medium)
+    &.is-large
+      +slider-size($size-large)
+
+    @each $name, $pair in $colors
+      $color: nth($pair, 1)
+      $color-invert: nth($pair, 2)
+      &.is-#{$name}
+        &::-moz-range-track
+          background: $color
+        &::-webkit-slider-runnable-track
+          background: $color
+        &::-ms-track
+          background: $color !important
+        &::-ms-fill-lower
+          background: $color
