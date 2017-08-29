@@ -12,12 +12,21 @@ $slider-thumb-shadow: none !default
   $track-height: $size / 2
   $thumb-size: $size
 
-  &::-webkit-slider-runnable-track
-    height: $track-height
-  &::-moz-range-track
-    height: $track-height
-  &::-ms-track
-    height: $track-height
+  &:not([orient="vertical"])
+    &::-webkit-slider-runnable-track
+      height: $track-height
+    &::-moz-range-track
+      height: $track-height
+    &::-ms-track
+      height: $track-height
+  
+  &[orient="vertical"]
+    &::-webkit-slider-runnable-track
+      width: $track-height
+    &::-moz-range-track
+      width: $track-height
+    &::-ms-track
+      width: $track-height
   
   &::-webkit-slider-thumb
     height: $thumb-size
@@ -44,9 +53,23 @@ input[type=range]
 
     &:focus
       outline: none
+    
+    &:not([orient="vertical"])
+      &::-webkit-slider-runnable-track
+        width: 100%
+      &::-moz-range-track
+        width: 100%
+      &::-ms-track
+        width: 100%
+    &[orient="vertical"]
+      &::-webkit-slider-runnable-track
+        height: 100%
+      &::-moz-range-track
+        height: 100%
+      &::-ms-track
+        height: 100%
 
     &::-webkit-slider-runnable-track
-      width: 100%
       cursor: pointer
       animate: 0.2s
       box-shadow: $slider-track-shadow
@@ -54,7 +77,6 @@ input[type=range]
       border-radius: $slider-track-radius
       border: $slider-track-border
     &::-moz-range-track
-      width: 100%
       cursor: pointer
       animate: 0.2s
       box-shadow: $slider-track-shadow
@@ -62,7 +84,6 @@ input[type=range]
       border-radius: $slider-track-radius
       border: $slider-track-border
     &::-ms-track
-      width: 100%
       cursor: pointer
       animate: 0.2s
       box-shadow: $slider-track-shadow
