@@ -39,7 +39,6 @@ $slider-thumb-shadow: none !default
     height: $thumb-size
     width: $thumb-size
   
-
 input[type=range]
   &.slider
     -webkit-appearance: none
@@ -62,6 +61,8 @@ input[type=range]
       &::-ms-track
         width: 100%
     &[orient="vertical"]
+      -webkit-appearance: slider-vertical
+      writing-mode: bt-lr
       &::-webkit-slider-runnable-track
         height: 100%
       &::-moz-range-track
