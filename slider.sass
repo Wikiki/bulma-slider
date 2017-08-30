@@ -1,11 +1,11 @@
 $slider-radius: $radius !default
-$slider-track-background: $grey-light !default
+$slider-track-background: $grey-lighter !default
 $slider-track-radius: $radius !default
 $slider-track-border: 0px solid $grey !default
 $slider-track-shadow: 0px 0px 0px $grey !default
-$slider-thumb-background: $primary !default
+$slider-thumb-background: $white !default
 $slider-thumb-radius: $radius !default
-$slider-thumb-border: 1px solid $white-ter !default
+$slider-thumb-border: 1px solid $grey-light !default
 $slider-thumb-shadow: none !default
 $slider-output-width: 3rem !default
 $slider-output-background: $grey-dark !default
@@ -83,12 +83,12 @@ input[type=range]
 
       &.has-output
         display: inline-block
-        width: calc(100% - ( #{$slider-output-width + 1.3rem } ))
+        width: calc(100% - ( #{$slider-output-width + 1.2rem } ))
         + output
           display: inline-block
           position: relative
-          margin-left: .85rem
-          top: -.6rem
+          margin-left: .75rem
+          top: -.75rem
 
       &.has-output-tooltip
         display: block
@@ -137,7 +137,7 @@ input[type=range]
       box-shadow: $slider-thumb-shadow
       border: $slider-thumb-border
       border-radius: $slider-thumb-radius
-      background: darken( $slider-thumb-background, 10% )
+      background: $slider-thumb-background
       cursor: pointer
       -webkit-appearance: none
       transition: transform .2s ease, -webkit-transform .2s ease
@@ -146,7 +146,7 @@ input[type=range]
     &::-moz-range-thumb
       box-shadow: $slider-thumb-shadow
       border: $slider-thumb-border
-      background: darken( $slider-thumb-background, 10% )
+      background: $slider-thumb-background
       border-radius: $slider-thumb-radius
       cursor: pointer
       transition: transform .2s ease, -webkit-transform .2s ease
@@ -155,7 +155,7 @@ input[type=range]
     &::-ms-thumb
       box-shadow: $slider-thumb-shadow
       border: $slider-thumb-border
-      background: darken( $slider-thumb-background, 10% )
+      background: $slider-thumb-background
       border-radius: $slider-thumb-radius
       cursor: pointer
       transition: transform .2s ease, -webkit-transform .2s ease
@@ -185,15 +185,18 @@ input[type=range]
 
     &:disabled
       opacity: 0.5
+      cursor: not-allowed
       &::-webkit-slider-thumb
+        cursor: not-allowed
         -webkit-transform: scale(1)
         transform: scale(1)
       &::-moz-range-thumb
+        cursor: not-allowed
         transform: scale(1)
       &::-ms-thumb
+        cursor: not-allowed
         -ms-transform: scale(1)
         transform: scale(1)
-
 
     +slider-size($size-normal)
     &.is-small
@@ -215,13 +218,6 @@ input[type=range]
           background: $color !important
         &::-ms-fill-lower
           background: $color
-
-        &::-webkit-slider-thumb
-          background: darken( $color, 10% )
-        &::-moz-range-thumb
-          background: darken( $color, 10% )
-        &::-ms-thumb
-          background: darken( $color, 10% )
 
         &.has-output,
         .has-output-tooltip
