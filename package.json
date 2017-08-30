@@ -1,0 +1,26 @@
+{
+  "name": "bulma-slider",
+  "version": "0.0.1",
+  "description": "Display classic slider more sexy, in different colors, sizes, and states ",
+  "main": "slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wikiki/bulma-slider.git"
+  },
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "bulma.io",
+    "extensions",
+    "slider"
+  ],
+  "author": "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wikiki/bulma-slider/issues"
+  },
+  "homepage": "https://github.com/Wikiki/bulma-slider#readme"
+}
