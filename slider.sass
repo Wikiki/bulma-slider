@@ -34,13 +34,18 @@ $slider-output-radius: $radius !default
   &::-webkit-slider-thumb
     height: $thumb-size
     width: $thumb-size
-    margin-top: -( $thumb-size / 2 )
+    margin-top: -( $thumb-size / 4 )
   &::-moz-range-thumb
     height: $thumb-size
     width: $thumb-size
   &::-ms-thumb
     height: $thumb-size
     width: $thumb-size
+
+  &[orient="vertical"]
+    &::-webkit-slider-thumb
+      margin-top: auto
+      margin-left: -( $thumb-size / 4 )
 
 input[type=range]
   &.slider
