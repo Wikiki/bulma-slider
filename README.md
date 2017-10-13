@@ -2,6 +2,8 @@
 Bulma's extension to display sliders
 (find all my bulma's extensions [here](https://wikiki.github.io/bulma-extensions/overview))
 
+[![Build Status](https://travis-ci.org/Wikiki/bulma-slider.svg?branch=master)](https://travis-ci.org/Wikiki/bulma-slider)
+
 <img src="./slider-example.png" width="100%">
 
 Documentation & Demo
