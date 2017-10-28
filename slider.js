@@ -45,7 +45,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
   [].forEach.call( sliders, function ( slider ) {
     var output = findOutputForSlider( slider );
     if ( output ) {
-      if ( output.contains( 'has-output-tooltip' ) ) {
+      if ( slider.contains( 'has-output-tooltip' ) ) {
         // Get new output position
         var newPosition = getSliderOutputPosition( slider );
 
