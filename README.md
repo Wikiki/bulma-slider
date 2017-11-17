@@ -10,7 +10,7 @@ Bulma's extension to display sliders
 
 Documentation & Demo
 ---
-You can find the Documentation and a demo [here](https://wikiki.github.io/bulma-extensions/slider)
+You can find the Documentation and a demo [here](https://wikiki.github.io/form/slider/)
 
 Thanks
 --
