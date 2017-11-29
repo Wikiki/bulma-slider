@@ -1,8 +1,8 @@
 {
   "name": "bulma-slider",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Display classic slider more sexy, in different colors, sizes, and states ",
-  "main": "slider.js",
+  "main": "slider.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,17 @@
   "bugs": {
     "url": "https://github.com/Wikiki/bulma-slider/issues"
   },
-  "homepage": "https://github.com/Wikiki/bulma-slider#readme"
+  "homepage": "https://github.com/Wikiki/bulma-slider#readme",
+  "devDependencies": {
+    "bulma": "^0.6.1"
+  },
+  "files": [
+    "slider.sass",
+    "slider.css",
+    "slider.min.css",
+    "slider.js",
+    "slider.min.js",
+    "LICENSE",
+    "README.md"
+  ]
 }
