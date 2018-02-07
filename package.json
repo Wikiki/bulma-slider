@@ -1,6 +1,6 @@
 {
   "name": "bulma-slider",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Display classic slider more sexy, in different colors, sizes, and states ",
   "main": "slider.sass",
   "scripts": {
@@ -23,15 +23,30 @@
     "url": "https://github.com/Wikiki/bulma-slider/issues"
   },
   "homepage": "https://github.com/Wikiki/bulma-slider#readme",
+  "scripts": {
+    "build": "gulp"
+  },
   "devDependencies": {
-    "bulma": "^0.6.1"
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-core": "^7.0.0-beta.3",
+    "bulma": "^0.6.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^2.2.1"
   },
   "files": [
-    "slider.sass",
-    "bulma-slider.css",
-    "bulma-slider.min.css",
-    "slider.js",
-    "slider.min.js",
+    "dist/slider.sass",
+    "dist/bulma-slider.min.css",
+    "dist/slider.js",
+    "dist/slider.min.js",
     "LICENSE",
     "README.md"
   ]
