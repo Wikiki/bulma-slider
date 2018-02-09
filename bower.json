@@ -2,7 +2,7 @@
   "name": "bulma-slider",
   "description": "Display classic slider more sexy, in different colors, sizes, and states",
   "main": "slider.sass",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "authors": [
     "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)"
   ],

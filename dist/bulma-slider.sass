@@ -1,75 +1,88 @@
-// Find output DOM associated to the DOM element passed as parameter
-function findOutputForSlider(element) {
-  var idVal = element.id;
-  outputs = document.getElementsByTagName('output');
-  for (var i = 0; i < outputs.length; i++) {
-    if (outputs[i].htmlFor == idVal)
-      return outputs[i];
-    }
-  }
+$slider-radius: $radius !default
+$slider-track-background: $grey-lighter !default
+$slider-track-radius: $radius !default
+$slider-track-border: 0px solid $grey !default
+$slider-track-shadow: 0px 0px 0px $grey !default
+$slider-thumb-background: $white !default
+$slider-thumb-radius: $radius !default
+$slider-thumb-border: 1px solid $grey-light !default
+$slider-thumb-shadow: none !default
+$slider-output-width: 3rem !default
+$slider-output-background: $grey-dark !default
+$slider-output-radius: $radius !default
 
-function getSliderOutputPosition(slider) {
-  // Update output position
-  var newPlace,
-    minValue;
+=slider-size($size)
+  $track-height: $size / 2
+  $thumb-size: $size
 
-  var style = window.getComputedStyle(slider, null);
-  // Measure width of range input
-  sliderWidth = parseInt(style.getPropertyValue('width'), 10);
+  &:not([orient="vertical"])
+    &::-webkit-slider-runnable-track
+      height: $track-height
+    &::-moz-range-track
+      height: $track-height
+    &::-ms-track
+      height: $track-height
 
-  // Figure out placement percentage between left and right of input
-  if (!slider.getAttribute('min')) {
-    minValue = 0;
-  } else {
-    minValue = slider.getAttribute('min');
-  }
-  var newPoint = (slider.value - minValue) / (slider.getAttribute('max') - minValue);
+  &[orient="vertical"]
+    &::-webkit-slider-runnable-track
+      width: $track-height
+    &::-moz-range-track
+      width: $track-height
+    &::-ms-track
+      width: $track-height
 
-  // Prevent bubble from going beyond left or right (unsupported browsers)
-  if (newPoint < 0) {
-    newPlace = 0;
-  } else if (newPoint > 1) {
-    newPlace = sliderWidth;
-  } else {
-    newPlace = sliderWidth * newPoint;
-  }
+  &::-webkit-slider-thumb
+    height: $thumb-size
+    width: $thumb-size
+    margin-top: -( $thumb-size / 4 )
+  &::-moz-range-thumb
+    height: $thumb-size
+    width: $thumb-size
+  &::-ms-thumb
+    height: $thumb-size
+    width: $thumb-size
 
-  return {
-    'position': newPlace + 'px'
-  }
-}
+  &[orient="vertical"]
+    &::-webkit-slider-thumb
+      margin-top: auto
+      margin-left: -( $thumb-size / 4 )
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all document sliders
-  var sliders = document.querySelectorAll('input[type="range"].slider');
-  [].forEach.call(sliders, function(slider) {
-    var output = findOutputForSlider(slider);
-    if (output) {
-      if (slider.classList.contains('has-output-tooltip')) {
-        // Get new output position
-        var newPosition = getSliderOutputPosition(slider);
+input[type=range]
+  &.slider
+    -webkit-appearance: none
+    appearance: none
+    margin: 1rem 0
+    background: transparent
 
-        // Set output position
-        output.style['left'] = newPosition.position;
-      }
+    &.is-fullwidth
+      display: block
+      width: 100%
 
-      // Add event listener to update output when slider value change
-      slider.addEventListener('input', function(event) {
-        if (event.target.classList.contains('has-output-tooltip')) {
-          // Get new output position
-          var newPosition = getSliderOutputPosition(event.target);
+    &:focus
+      outline: none
 
-          // Set output position
-          output.style['left'] = newPosition.position;
-        }
+    &:not([orient="vertical"])
+      &::-webkit-slider-runnable-track
+        width: 100%
+      &::-moz-range-track
+        width: 100%
+      &::-ms-track
+        width: 100%
 
-        // Update output with slider value
-        output.value = event.target.value;
-      });
-    }
-  });
-});
-
+      &.has-output,
+      &.has-output-tooltip
+        + output
+          width: $slider-output-width
+          background: $slider-output-background
+          border-radius: $slider-output-radius
+          padding: .4rem .8rem
+          font-size: $size-7
+          line-height: $size-7
+          text-align: center
+          text-overflow: ellipsis
+          white-space: nowrap
+          color: $white
+          overflow: hidden
           pointer-events: none
           z-index: 200
 

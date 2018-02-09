@@ -1,3 +1,8 @@
+<a name="0.1.5"></a>
+## [0.1.5](https://github.com/Wikiki/bulma-slider/compare/0.1.4...0.1.5) (2018-02-09)
+
+
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/Wikiki/bulma-slider/compare/v0.1.0...v0.1.4) (2018-02-09)
 
