@@ -1,0 +1,218 @@
+// Find output DOM associated to the DOM element passed as parameter
+function findOutputForSlider(element) {
+  var idVal = element.id;
+  outputs = document.getElementsByTagName('output');
+  for (var i = 0; i < outputs.length; i++) {
+    if (outputs[i].htmlFor == idVal)
+      return outputs[i];
+    }
+  }
+
+function getSliderOutputPosition(slider) {
+  // Update output position
+  var newPlace,
+    minValue;
+
+  var style = window.getComputedStyle(slider, null);
+  // Measure width of range input
+  sliderWidth = parseInt(style.getPropertyValue('width'), 10);
+
+  // Figure out placement percentage between left and right of input
+  if (!slider.getAttribute('min')) {
+    minValue = 0;
+  } else {
+    minValue = slider.getAttribute('min');
+  }
+  var newPoint = (slider.value - minValue) / (slider.getAttribute('max') - minValue);
+
+  // Prevent bubble from going beyond left or right (unsupported browsers)
+  if (newPoint < 0) {
+    newPlace = 0;
+  } else if (newPoint > 1) {
+    newPlace = sliderWidth;
+  } else {
+    newPlace = sliderWidth * newPoint;
+  }
+
+  return {
+    'position': newPlace + 'px'
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all document sliders
+  var sliders = document.querySelectorAll('input[type="range"].slider');
+  [].forEach.call(sliders, function(slider) {
+    var output = findOutputForSlider(slider);
+    if (output) {
+      if (slider.classList.contains('has-output-tooltip')) {
+        // Get new output position
+        var newPosition = getSliderOutputPosition(slider);
+
+        // Set output position
+        output.style['left'] = newPosition.position;
+      }
+
+      // Add event listener to update output when slider value change
+      slider.addEventListener('input', function(event) {
+        if (event.target.classList.contains('has-output-tooltip')) {
+          // Get new output position
+          var newPosition = getSliderOutputPosition(event.target);
+
+          // Set output position
+          output.style['left'] = newPosition.position;
+        }
+
+        // Update output with slider value
+        output.value = event.target.value;
+      });
+    }
+  });
+});
+
+          pointer-events: none
+          z-index: 200
+
+      &.has-output
+        display: inline-block
+        width: calc(100% - ( #{$slider-output-width + 1.2rem } ))
+        + output
+          display: inline-block
+          position: relative
+          margin-left: .75rem
+          top: -.75rem
+
+      &.has-output-tooltip
+        display: block
+        + output
+          position: absolute
+          left: 0
+          top: -.1rem
+
+    &[orient="vertical"]
+      -webkit-appearance: slider-vertical
+      writing-mode: bt-lr
+      &::-webkit-slider-runnable-track
+        height: 100%
+      &::-moz-range-track
+        height: 100%
+      &::-ms-track
+        height: 100%
+
+    &::-webkit-slider-runnable-track
+      cursor: pointer
+      animate: 0.2s
+      box-shadow: $slider-track-shadow
+      background: $slider-track-background
+      border-radius: $slider-track-radius
+      border: $slider-track-border
+    &::-moz-range-track
+      cursor: pointer
+      animate: 0.2s
+      box-shadow: $slider-track-shadow
+      background: $slider-track-background
+      border-radius: $slider-track-radius
+      border: $slider-track-border
+    &::-ms-track
+      cursor: pointer
+      animate: 0.2s
+      box-shadow: $slider-track-shadow
+      background: $slider-track-background
+      border-radius: $slider-track-radius
+      border: $slider-track-border
+    &::-ms-fill-lower
+      background: $primary
+    &::-ms-fill-upper
+      background: $grey-lighter
+
+    &::-webkit-slider-thumb
+      box-shadow: $slider-thumb-shadow
+      border: $slider-thumb-border
+      border-radius: $slider-thumb-radius
+      background: $slider-thumb-background
+      cursor: pointer
+      -webkit-appearance: none
+      transition: transform .2s ease, -webkit-transform .2s ease
+      transition: transform .2s ease
+      transition: -webkit-transform .2s ease
+    &::-moz-range-thumb
+      box-shadow: $slider-thumb-shadow
+      border: $slider-thumb-border
+      background: $slider-thumb-background
+      border-radius: $slider-thumb-radius
+      cursor: pointer
+      transition: transform .2s ease, -webkit-transform .2s ease
+      transition: transform .2s ease
+      transition: -webkit-transform .2s ease
+    &::-ms-thumb
+      box-shadow: $slider-thumb-shadow
+      border: $slider-thumb-border
+      background: $slider-thumb-background
+      border-radius: $slider-thumb-radius
+      cursor: pointer
+      transition: transform .2s ease, -webkit-transform .2s ease
+      transition: transform .2s ease
+      transition: -webkit-transform .2s ease
+
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+
+    &.is-circle
+      &::-webkit-slider-thumb
+        border-radius: 50%
+      &::-moz-range-thumb
+        border-radius: 50%
+      &::-ms-thumb
+        border-radius: 50%
+
+    &:active
+      &::-webkit-slider-thumb
+        -webkit-transform: scale(1.25)
+        transform: scale(1.25)
+      &::-moz-range-thumb
+        transform: scale(1.25)
+      &::-ms-thumb
+        -ms-transform: scale(1.25)
+        transform: scale(1.25)
+
+    &:disabled
+      opacity: 0.5
+      cursor: not-allowed
+      &::-webkit-slider-thumb
+        cursor: not-allowed
+        -webkit-transform: scale(1)
+        transform: scale(1)
+      &::-moz-range-thumb
+        cursor: not-allowed
+        transform: scale(1)
+      &::-ms-thumb
+        cursor: not-allowed
+        -ms-transform: scale(1)
+        transform: scale(1)
+
+    +slider-size($size-normal)
+    &.is-small
+      +slider-size($size-small)
+    &.is-medium
+      +slider-size($size-medium)
+    &.is-large
+      +slider-size($size-large)
+
+    @each $name, $pair in $colors
+      $color: nth($pair, 1)
+      $color-invert: nth($pair, 2)
+      &.is-#{$name}
+        &::-moz-range-track
+          background: $color
+        &::-webkit-slider-runnable-track
+          background: $color
+        &::-ms-track
+          background: $color !important
+        &::-ms-fill-lower
+          background: $color
+
+        &.has-output,
+        .has-output-tooltip
+          + output
+            background-color: $color
+            color: $color-invert

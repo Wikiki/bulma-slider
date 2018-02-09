@@ -1,3 +1,19 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/Wikiki/bulma-slider/compare/v0.1.0...v0.1.4) (2018-02-09)
+
+
+### Bug Fixes
+
+* **bower:** Add missing version ([0cf8213](https://github.com/Wikiki/bulma-slider/commit/0cf8213))
+
+
+### Features
+
+* **gulp:** Add gulp dependencies ([9f1e34d](https://github.com/Wikiki/bulma-slider/commit/9f1e34d))
+* **gulp:** Add release task ([181bf3f](https://github.com/Wikiki/bulma-slider/commit/181bf3f))
+
+
+
 # Change Log
 
 ## [Unreleased](https://github.com/wikiki/bulma-slider/tree/HEAD)
