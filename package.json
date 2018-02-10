@@ -2,7 +2,7 @@
   "name": "bulma-slider",
   "version": "0.1.5",
   "description": "Display classic slider more sexy, in different colors, sizes, and states ",
-  "main": "slider.sass",
+  "main": "dist/bulma-slider.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -48,10 +48,10 @@
     "run-sequence": "^2.2.1"
   },
   "files": [
-    "dist/slider.sass",
+    "dist/bulma-slider.sass",
     "dist/bulma-slider.min.css",
-    "dist/slider.js",
-    "dist/slider.min.js",
+    "dist/bulma-slider.js",
+    "dist/bulma-slider.min.js",
     "LICENSE",
     "README.md"
   ]
