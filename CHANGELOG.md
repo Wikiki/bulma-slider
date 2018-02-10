@@ -1,3 +1,13 @@
+<a name="0.1.7"></a>
+## [0.1.7](https://github.com/Wikiki/bulma-slider/compare/0.1.6...0.1.7) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([394b555](https://github.com/Wikiki/bulma-slider/commit/394b555))
+
+
+
 <a name="0.1.6"></a>
 ## [0.1.6](https://github.com/Wikiki/bulma-slider/compare/0.1.5...0.1.6) (2018-02-10)
 
