@@ -1,3 +1,6 @@
+(function () {
+'use strict';
+
 // Find output DOM associated to the DOM element passed as parameter
 function findOutputForSlider(element) {
   var idVal = element.id;
@@ -69,3 +72,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+}());
