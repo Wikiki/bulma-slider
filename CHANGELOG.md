@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Wikiki/bulma-slider/compare/0.1.8...1.0.0) (2018-02-10)
+
+
+### Features
+
+* **rollup:** Integrate Rollup transpilation ([3169503](https://github.com/Wikiki/bulma-slider/commit/3169503))
+
+
+
 <a name="0.1.8"></a>
 ## [0.1.8](https://github.com/Wikiki/bulma-slider/compare/0.1.7...0.1.8) (2018-02-10)
 
