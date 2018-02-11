@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/Wikiki/bulma-slider/compare/1.0.0...1.0.1) (2018-02-11)
+
+
+### Bug Fixes
+
+* **gulp:** Remove Bulma’s important from dist’sass ([37bb5a9](https://github.com/Wikiki/bulma-slider/commit/37bb5a9))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/Wikiki/bulma-slider/compare/0.1.8...1.0.0) (2018-02-10)
 
