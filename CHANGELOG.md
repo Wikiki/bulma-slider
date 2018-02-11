@@ -1,3 +1,40 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Wikiki/bulma-slider/compare/0.1.8...1.0.0) (2018-02-10)
+
+
+### Features
+
+* **rollup:** Integrate Rollup transpilation ([3169503](https://github.com/Wikiki/bulma-slider/commit/3169503))
+
+
+
+<a name="0.1.8"></a>
+## [0.1.8](https://github.com/Wikiki/bulma-slider/compare/0.1.7...0.1.8) (2018-02-10)
+
+
+
+<a name="0.1.7"></a>
+## [0.1.7](https://github.com/Wikiki/bulma-slider/compare/0.1.6...0.1.7) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([394b555](https://github.com/Wikiki/bulma-slider/commit/394b555))
+
+
+
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/Wikiki/bulma-slider/compare/0.1.5...0.1.6) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Correct dist filenames ([029767a](https://github.com/Wikiki/bulma-slider/commit/029767a))
+* **package:** File paths ([1e77c8e](https://github.com/Wikiki/bulma-slider/commit/1e77c8e))
+* **travis:** Remove configuration ([25cf447](https://github.com/Wikiki/bulma-slider/commit/25cf447))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/Wikiki/bulma-slider/compare/0.1.4...0.1.5) (2018-02-09)
 
