@@ -4,7 +4,7 @@
 // Find output DOM associated to the DOM element passed as parameter
 function findOutputForSlider(element) {
   var idVal = element.id;
-  outputs = document.getElementsByTagName('output');
+  var outputs = document.getElementsByTagName('output');
   for (var i = 0; i < outputs.length; i++) {
     if (outputs[i].htmlFor == idVal)
       return outputs[i];
