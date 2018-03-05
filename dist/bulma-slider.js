@@ -13,12 +13,11 @@ function findOutputForSlider(element) {
 
 function getSliderOutputPosition(slider) {
   // Update output position
-  var newPlace,
-    minValue;
+  var newPlace, minValue;
 
   var style = window.getComputedStyle(slider, null);
   // Measure width of range input
-  sliderWidth = parseInt(style.getPropertyValue('width'), 10);
+  var sliderWidth = parseInt(style.getPropertyValue('width'), 10);
 
   // Figure out placement percentage between left and right of input
   if (!slider.getAttribute('min')) {
