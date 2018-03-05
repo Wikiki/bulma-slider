@@ -1,6 +1,6 @@
 {
   "name": "bulma-slider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Display classic slider more sexy, in different colors, sizes, and states ",
   "main": "dist/bulma-slider.sass",
   "scripts": {

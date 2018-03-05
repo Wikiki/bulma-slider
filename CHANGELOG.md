@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/Wikiki/bulma-slider/compare/1.0.1...1.0.3) (2018-03-05)
+
+
+### Bug Fixes
+
+* **js:** Not defined variable ([7f6bde6](https://github.com/Wikiki/bulma-slider/commit/7f6bde6))
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/Wikiki/bulma-slider/compare/1.0.1...1.0.2) (2018-03-03)
 
