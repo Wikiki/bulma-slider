@@ -65,8 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
           output.style['left'] = newPosition.position;
         }
 
+        // Check for prefix and postfix
+        var prefix = (output.hasAttribute('data-prefix') ? output.getAttribute('data-prefix') : '');
+        var postfix = (output.hasAttribute('data-postfix') ? output.getAttribute('data-postfix') : '');
+        
         // Update output with slider value
-        output.value = event.target.value;
+        output.value = prefix + event.target.value + postfix;
       });
     }
   });
