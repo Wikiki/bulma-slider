@@ -7,15 +7,17 @@ $slider-thumb-background: $white !default
 $slider-thumb-radius: $radius !default
 $slider-thumb-border: 1px solid $grey-light !default
 $slider-thumb-shadow: none !default
+$slider-thumb-to-track-ratio: 2 !default
 $slider-output-width: 3rem !default
 $slider-output-background: $grey-dark !default
 $slider-output-radius: $radius !default
 
 =slider-size($size)
-  $track-height: $size / 2
+  $track-height: $size / $slider-thumb-to-track-ratio
   $thumb-size: $size
 
   &:not([orient="vertical"])
+    min-height: calc(( #{$size} + 2px ) * 1.25)
     &::-webkit-slider-runnable-track
       height: $track-height
     &::-moz-range-track
@@ -41,6 +43,7 @@ $slider-output-radius: $radius !default
   &::-ms-thumb
     height: $thumb-size
     width: $thumb-size
+    margin-top: 0
 
   &[orient="vertical"]
     &::-webkit-slider-thumb
@@ -133,10 +136,10 @@ input[type=range]
       background: $slider-track-background
       border-radius: $slider-track-radius
       border: $slider-track-border
-    &::-ms-fill-lower
-      background: $primary
+    &::-ms-fill-lower,
     &::-ms-fill-upper
       background: $grey-lighter
+      border-radius: $slider-radius
 
     &::-webkit-slider-thumb
       box-shadow: $slider-thumb-shadow
@@ -221,7 +224,8 @@ input[type=range]
           background: $color
         &::-ms-track
           background: $color !important
-        &::-ms-fill-lower
+        &::-ms-fill-lower,
+        &::-ms-fill-upper
           background: $color
 
         &.has-output,
