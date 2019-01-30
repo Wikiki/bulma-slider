@@ -69,7 +69,7 @@ export default class bulmaSlider extends EventEmitter {
   }
 
   _findOutputForSlider() {
-    const result = null;
+    let result = null;
     const outputs = document.getElementsByTagName('output');
     [].some.call(outputs, output => {
       if (output.htmlFor == this.element.getAttribute('id')) {
