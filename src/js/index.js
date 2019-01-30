@@ -52,6 +52,8 @@ export default class bulmaSlider extends EventEmitter {
   init() {
     this._id = 'bulmaSlider' + (new Date()).getTime() + Math.floor(Math.random() * Math.floor(9999));
     this.output = this._findOutputForSlider();
+    
+    this._bindEvents();
 
     if (this.output) {
       if (this.element.classList.contains('has-output-tooltip')) {
@@ -67,13 +69,15 @@ export default class bulmaSlider extends EventEmitter {
   }
 
   _findOutputForSlider() {
+    const result = null;
     const outputs = document.getElementsByTagName('output');
-    [].forEach.call(outputs, output => {
+    [].some.call(outputs, output => {
       if (output.htmlFor == this.element.getAttribute('id')) {
-        return output;
+        result = output;
+        return true;
       }
     });
-    return null;
+    return result;
   }
 
   _getSliderOutputPosition() {
