@@ -2,8 +2,9 @@
   "name": "bulma-slider",
   "version": "2.0.0",
   "description": "Display classic slider more sexy, in different colors, sizes, and states ",
-  "main": "./dist/js/bulma-slider.min.js",
-  "style": "./dist/css/bulma-slider.min.css",
+  "main": "dist/js/bulma-slider.min.js",
+  "style": "dist/css/bulma-slider.min.css",
+  "sass": "src/sass/index.sass",
   "scripts": {
     "build": "gulp",
     "commit": "git-cz",

@@ -64,7 +64,7 @@ gulp.task('build:styles', function() {
 			.pipe(concat(config.sass.output.filename + '.sass'))
 			.pipe(sass({
 				style: config.sass.output.format,
-				trace: true,
+				trace: false,
 				loadPath: [config.sass.source],
 				includePaths: ['node_modules/bulma/sass/utilities/']
 			}))
@@ -79,13 +79,13 @@ gulp.task('build:styles', function() {
 
 // Copy original sass file to dist
 gulp.task('build:styles:copy', function() {
-	if (fs.existsSync(config.sass.source + config.sass.input)) {
-		return gulp.src(config.sass.source + config.sass.input)
-			.pipe(concat(config.sass.output.filename + '.sass'))
-			.pipe(gulp.dest(config.sass.destination));
-	} else {
+	// if (fs.existsSync(config.sass.source + config.sass.input)) {
+	//	return gulp.src(config.sass.source + config.sass.input)
+	//		.pipe(concat(config.sass.output.filename + '.sass'))
+	//		.pipe(gulp.dest(config.sass.destination));
+	// } else {
 		return gulp.src('.').pipe(nop());
-	}
+	// }
 });
 
 gulp.task('clean:styles', function() {
