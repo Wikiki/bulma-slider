@@ -123,9 +123,9 @@ var bulmaSlider = function (_EventEmitter) {
   }
 
   /**
-   * Initiate all DOM element containing carousel class
+   * Initiate all DOM element containing selector
    * @method
-   * @return {Array} Array of all Carousel instances
+   * @return {Array} Array of all slider instances
    */
 
 
@@ -141,6 +141,8 @@ var bulmaSlider = function (_EventEmitter) {
     value: function init() {
       this._id = 'bulmaSlider' + new Date().getTime() + Math.floor(Math.random() * Math.floor(9999));
       this.output = this._findOutputForSlider();
+
+      this._bindEvents();
 
       if (this.output) {
         if (this.element.classList.contains('has-output-tooltip')) {
@@ -159,13 +161,15 @@ var bulmaSlider = function (_EventEmitter) {
     value: function _findOutputForSlider() {
       var _this2 = this;
 
+      var result = null;
       var outputs = document.getElementsByTagName('output');
-      [].forEach.call(outputs, function (output) {
+      [].some.call(outputs, function (output) {
         if (output.htmlFor == _this2.element.getAttribute('id')) {
-          return output;
+          result = output;
+          return true;
         }
       });
-      return null;
+      return result;
     }
   }, {
     key: '_getSliderOutputPosition',
@@ -238,17 +242,24 @@ var bulmaSlider = function (_EventEmitter) {
   }], [{
     key: 'attach',
     value: function attach() {
+      var _this3 = this;
+
       var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'input[type="range"].slider';
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       var instances = new Array();
 
-      var elements = document.querySelectorAll(selector);
+      var elements = isString(selector) ? document.querySelectorAll(selector) : Array.isArray(selector) ? selector : [selector];
       [].forEach.call(elements, function (element) {
-        setTimeout(function () {
-          instances.push(new bulmaSlider(element, options));
-        }, 100);
+        if (typeof element[_this3.constructor.name] === 'undefined') {
+          var instance = new bulmaSlider(element, options);
+          element[_this3.constructor.name] = instance;
+          instances.push(instance);
+        } else {
+          instances.push(element[_this3.constructor.name]);
+        }
       });
+
       return instances;
     }
   }]);

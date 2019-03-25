@@ -28,21 +28,26 @@ export default class bulmaSlider extends EventEmitter {
   }
 
   /**
-   * Initiate all DOM element containing carousel class
+   * Initiate all DOM element containing selector
    * @method
-   * @return {Array} Array of all Carousel instances
+   * @return {Array} Array of all slider instances
    */
   static attach(selector = 'input[type="range"].slider', options = {}) {
     let instances = new Array();
 
-    const elements = document.querySelectorAll(selector);
+    const elements = isString(selector) ? document.querySelectorAll(selector) : Array.isArray(selector) ? selector : [selector];
     [].forEach.call(elements, element => {
-      setTimeout(() => {
-        instances.push(new bulmaSlider(element, options));
-      }, 100);
+      if (typeof element[this.constructor.name] === 'undefined') {
+        const instance = new bulmaSlider(element, options);
+        element[this.constructor.name] = instance;
+        instances.push(instance);
+      } else {
+        instances.push(element[this.constructor.name]);
+      }
     });
+
     return instances;
-  }
+}
 
   /**
    * Initiate plugin
