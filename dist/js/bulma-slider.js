@@ -167,7 +167,7 @@ var bulmaSlider = function (_EventEmitter) {
       var result = null;
       var outputs = document.getElementsByTagName('output') || [];
 
-      outputs.forEach(function (output) {
+      Array.from(outputs).forEach(function (output) {
         if (output.htmlFor == _this2.element.getAttribute('id')) {
           result = output;
           return true;

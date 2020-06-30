@@ -75,7 +75,7 @@ export default class bulmaSlider extends EventEmitter {
     let result = null;
     const outputs = document.getElementsByTagName('output') || [];
     
-    outputs.forEach(output => {
+    Array.from(outputs).forEach(output => {
       if (output.htmlFor == this.element.getAttribute('id')) {
         result = output;
         return true;
