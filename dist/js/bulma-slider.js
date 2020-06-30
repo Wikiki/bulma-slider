@@ -79,11 +79,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isString", function() { return isString; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__events__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultOptions__ = __webpack_require__(2);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -93,8 +95,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-var onSliderInput = Symbol('onSliderInput');
+var isString = function isString(unknown) {
+  return typeof unknown === 'string' || !!unknown && (typeof unknown === 'undefined' ? 'undefined' : _typeof(unknown)) === 'object' && Object.prototype.toString.call(unknown) === '[object String]';
+};
 
 var bulmaSlider = function (_EventEmitter) {
   _inherits(bulmaSlider, _EventEmitter);
@@ -114,9 +117,9 @@ var bulmaSlider = function (_EventEmitter) {
 
     _this._clickEvents = ['click'];
     /// Set default options and merge with instance defined
-    _this.options = _extends({}, __WEBPACK_IMPORTED_MODULE_1__defaultOptions__["a" /* default */], options);
+    _this.options = _extends({}, options);
 
-    _this[onSliderInput] = _this[onSliderInput].bind(_this);
+    _this.onSliderInput = _this.onSliderInput.bind(_this);
 
     _this.init();
     return _this;
@@ -162,8 +165,9 @@ var bulmaSlider = function (_EventEmitter) {
       var _this2 = this;
 
       var result = null;
-      var outputs = document.getElementsByTagName('output');
-      [].some.call(outputs, function (output) {
+      var outputs = document.getElementsByTagName('output') || [];
+
+      outputs.call(function (output) {
         if (output.htmlFor == _this2.element.getAttribute('id')) {
           result = output;
           return true;
@@ -214,12 +218,12 @@ var bulmaSlider = function (_EventEmitter) {
     value: function _bindEvents() {
       if (this.output) {
         // Add event listener to update output when slider value change
-        this.element.addEventListener('input', this[onSliderInput], false);
+        this.element.addEventListener('input', this.onSliderInput, false);
       }
     }
   }, {
-    key: onSliderInput,
-    value: function value(e) {
+    key: 'onSliderInput',
+    value: function onSliderInput(e) {
       e.preventDefault();
 
       if (this.element.classList.contains('has-output-tooltip')) {
@@ -451,15 +455,6 @@ var EventEmitter = function () {
 }();
 
 /* harmony default export */ __webpack_exports__["a"] = (EventEmitter);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var defaultOptions = {};
-
-/* harmony default export */ __webpack_exports__["a"] = (defaultOptions);
 
 /***/ })
 /******/ ])["default"];

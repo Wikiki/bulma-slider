@@ -18,13 +18,4 @@ describe('bulmaSlider', () => {
     var instances = bulmaSlider.attach();
     instances.every(i => expect(i).toBeInstanceOf(bulmaSlider));
   });
-
-  test('Should return an array of bulmaSlider instances with options', () => {
-    var instances = bulmaSlider.attach('[type="date"]', {
-      minDate: '2018-01-01',
-      maxDate: '2018-12-31',
-      dateFormat: 'yyyy-mm-dd',
-    });
-    instances.every(i => expect(i).toBeInstanceOf(bulmaSlider));
-  });
 });

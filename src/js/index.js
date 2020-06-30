@@ -1,7 +1,6 @@
 import EventEmitter from './events';
-import defaultOptions from './defaultOptions';
 
-const onSliderInput = Symbol('onSliderInput');
+export const isString = unknown => (typeof unknown === 'string' || ((!!unknown && typeof unknown === 'object') && Object.prototype.toString.call(unknown) === '[object String]'));
 
 export default class bulmaSlider extends EventEmitter {
   constructor(selector, options = {}) {
@@ -18,11 +17,10 @@ export default class bulmaSlider extends EventEmitter {
     this._clickEvents = ['click'];
     /// Set default options and merge with instance defined
     this.options = {
-      ...defaultOptions,
       ...options
     };
 
-    this[onSliderInput] = this[onSliderInput].bind(this);
+    this.onSliderInput = this.onSliderInput.bind(this);
 
     this.init();
   }
@@ -75,8 +73,9 @@ export default class bulmaSlider extends EventEmitter {
 
   _findOutputForSlider() {
     let result = null;
-    const outputs = document.getElementsByTagName('output');
-    [].some.call(outputs, output => {
+    const outputs = document.getElementsByTagName('output') || [];
+    
+    outputs.call(output => {
       if (output.htmlFor == this.element.getAttribute('id')) {
         result = output;
         return true;
@@ -123,11 +122,11 @@ export default class bulmaSlider extends EventEmitter {
   _bindEvents() {
     if (this.output) {
       // Add event listener to update output when slider value change
-      this.element.addEventListener('input', this[onSliderInput], false);
+      this.element.addEventListener('input', this.onSliderInput, false);
     }
   }
 
-  [onSliderInput](e) {
+  onSliderInput(e) {
     e.preventDefault();
 
     if (this.element.classList.contains('has-output-tooltip')) {

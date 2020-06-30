@@ -1,6 +1,6 @@
 {
   "name": "bulma-slider",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Display classic slider more sexy, in different colors, sizes, and states ",
   "main": "dist/js/bulma-slider.min.js",
   "style": "dist/css/bulma-slider.min.css",
@@ -51,7 +51,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-nop": "0.0.3",
     "gulp-postcss": "^7.0.1",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.0",
     "jest": "^23.1.0",
     "regenerator-runtime": "^0.11.1",

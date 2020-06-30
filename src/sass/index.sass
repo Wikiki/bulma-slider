@@ -81,6 +81,8 @@ input[type=range]
 					overflow: hidden
 					pointer-events: none
 					z-index: 200
+				&:disabled + output
+					opacity: 0.5
 
 			&.has-output
 				display: inline-block
