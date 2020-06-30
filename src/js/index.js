@@ -34,7 +34,7 @@ export default class bulmaSlider extends EventEmitter {
     let instances = new Array();
 
     const elements = isString(selector) ? document.querySelectorAll(selector) : Array.isArray(selector) ? selector : [selector];
-    [].forEach.call(elements, element => {
+    elements.forEach(element => {
       if (typeof element[this.constructor.name] === 'undefined') {
         const instance = new bulmaSlider(element, options);
         element[this.constructor.name] = instance;
@@ -75,7 +75,7 @@ export default class bulmaSlider extends EventEmitter {
     let result = null;
     const outputs = document.getElementsByTagName('output') || [];
     
-    outputs.call(output => {
+    outputs.forEach(output => {
       if (output.htmlFor == this.element.getAttribute('id')) {
         result = output;
         return true;

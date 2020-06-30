@@ -167,7 +167,7 @@ var bulmaSlider = function (_EventEmitter) {
       var result = null;
       var outputs = document.getElementsByTagName('output') || [];
 
-      outputs.call(function (output) {
+      outputs.forEach(function (output) {
         if (output.htmlFor == _this2.element.getAttribute('id')) {
           result = output;
           return true;
@@ -254,7 +254,7 @@ var bulmaSlider = function (_EventEmitter) {
       var instances = new Array();
 
       var elements = isString(selector) ? document.querySelectorAll(selector) : Array.isArray(selector) ? selector : [selector];
-      [].forEach.call(elements, function (element) {
+      elements.forEach(function (element) {
         if (typeof element[_this3.constructor.name] === 'undefined') {
           var instance = new bulmaSlider(element, options);
           element[_this3.constructor.name] = instance;
