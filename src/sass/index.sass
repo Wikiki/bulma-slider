@@ -13,7 +13,7 @@ $slider-output-background: $grey-dark !default
 $slider-output-radius: $radius !default
 
 =slider-size($size)
-	$track-height: $size / $slider-thumb-to-track-ratio
+	$track-height: math.div($size, $slider-thumb-to-track-ratio)
 	$thumb-size: $size
 
 	&:not([orient="vertical"])
@@ -48,12 +48,12 @@ $slider-output-radius: $radius !default
 		margin-top: 0
 
 	&::-webkit-slider-thumb
-		margin-top: -($thumb-size / 4)
+		margin-top: -math.div($thumb-size, 4)
 
 	&[orient="vertical"]
 		&::-webkit-slider-thumb
 			margin-top: auto
-			margin-left: -($thumb-size / 4)
+			margin-left: -math.div($thumb-size, 4)
 
 input[type="range"]
 	&.slider
