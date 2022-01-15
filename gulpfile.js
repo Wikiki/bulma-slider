@@ -30,7 +30,7 @@ const paths = {
 const config = {
 	sass: {
 		input: 'index.sass',
-		dependencies: ['node_modules/bulma/sass/utilities/_all.sass'],
+		dependencies: [],
 		output: {
 			filename: pkg.name,
 			format: 'compressed'

@@ -1,4 +1,5 @@
 @use "sass:math"
+@import "node_modules/bulma/sass/utilities/_all.sass"
 
 $slider-radius: $radius !default
 $slider-track-background: $grey-lighter !default
@@ -50,12 +51,12 @@ $slider-output-radius: $radius !default
 		margin-top: 0
 
 	&::-webkit-slider-thumb
-		margin-top: -math.div($thumb-size, 4)
+		margin-top: (0 - math.div($thumb-size, 4))
 
 	&[orient="vertical"]
 		&::-webkit-slider-thumb
 			margin-top: auto
-			margin-left: -math.div($thumb-size, 4)
+			margin-left: (0 - math.div($thumb-size, 4))
 
 input[type="range"]
 	&.slider
