@@ -121,7 +121,7 @@ gulp.task('build:scripts', function () {
 							exclude: /(node_modules)/,
 							loader: 'babel-loader',
 							options: {
-								babelrc: './babelrc'
+								babelrc: true
 							}
 						},
 					],
