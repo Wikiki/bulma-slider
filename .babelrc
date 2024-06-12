@@ -8,7 +8,7 @@
     [
       "@babel/preset-env",
       {
-        "modules": "commonjs",
+        "modules": "umd",
         "targets": {
           "browsers": [
             ">0.25%",
