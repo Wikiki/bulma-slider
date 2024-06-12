@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 'use strict';
 
 const bulmaSlider = require('../src/js/index').default;

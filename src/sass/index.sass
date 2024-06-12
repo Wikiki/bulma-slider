@@ -1,5 +1,5 @@
 @use "sass:math"
-@import "node_modules/bulma/sass/utilities/_all.sass"
+@import "node_modules/bulma/sass/utilities"
 
 $slider-radius: $radius !default
 $slider-track-background: $grey-lighter !default
@@ -223,7 +223,7 @@ input[type="range"]
 
 		@each $name, $pair in $colors
 			$color: nth($pair, 1)
-			$color-invert: nth($pair, 2)
+			$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
 
 			&.is-#{$name}
 				&::-moz-range-track
