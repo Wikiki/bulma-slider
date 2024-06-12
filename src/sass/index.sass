@@ -55,7 +55,7 @@ $slider-output-radius: $radius !default
 
 	&[orient="vertical"]
 		&::-webkit-slider-thumb
-			margin-top: auto
+			margin-top: 0
 			margin-left: (0 - math.div($thumb-size, 4))
 
 input[type="range"]
@@ -119,8 +119,11 @@ input[type="range"]
 					top: -0.1rem
 
 		&[orient="vertical"]
-			appearance: slider-vertical
-			writing-mode: bt-lr
+			//appearance: slider-vertical
+			//writing-mode: bt-lr
+			writing-mode: vertical-lr
+			//direction: ltr
+			//position: absolute
 
 			&::-webkit-slider-runnable-track
 				height: 100%
