@@ -25,7 +25,7 @@ const uglify = require('gulp-uglify');
 const paths = {
 	src: 'src/',
 	dist: 'dist/',
-	bulma: 'node_modules/bulma/sass/utilities/'
+	node_modules: 'node_modules/'
 };
 const config = {
 	sass: {
@@ -66,7 +66,7 @@ gulp.task('build:styles', function () {
 				style: config.sass.output.format,
 				trace: false,
 				loadPath: [config.sass.source],
-				includePaths: ['node_modules/bulma/sass/utilities/']
+				includePaths: [paths.node_modules]
 			}))
 			.pipe(concat(config.sass.output.filename + (config.sass.output.format === 'compressed' ? '.min' : '') + '.css'))
 			.pipe(postcss([autoprefixer({ browsers: pkg.broswers })]))
@@ -114,6 +114,7 @@ gulp.task('build:scripts', function () {
 					libraryTarget: config.javascript.output.format,
 					libraryExport: 'default'
 				},
+				mode: 'production',
 				module: {
 					rules: [
 						{
