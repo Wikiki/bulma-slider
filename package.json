@@ -39,7 +39,7 @@
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
-    "bulma": "^0.9.3",
+    "bulma": "^1.0.1",
     "camelcase": "^6.3.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
