@@ -45,7 +45,18 @@ export default class bulmaSlider extends EventEmitter {
     });
 
     return instances;
-}
+  }
+
+  /**
+   * Updates the output values of all given sliders
+   * @method
+   * @param sliders {Array<bulmaSlider>} The sliders to update
+   */
+  static updateSliders(sliders) {
+    sliders.forEach(slider => {
+      slider.onSliderInput(new Event('input'));
+    })
+  }
 
   /**
    * Initiate plugin
